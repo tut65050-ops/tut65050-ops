@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Qaaid Abdullah - Start Bootstrap Theme</title>
+        <meta name="description" content="GIS final lab report and map portfolio by Qaaid Abdullah" />
+        <meta name="author" content="Qaaid Abdullah" />
+        <title>Qaaid Abdullah | GIS Portfolio</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -14,101 +14,321 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Portfolio styles -->
+        <style>
+            :root { --accent: #0085a1; --ink: #212529; --muted: #6c757d; --line: #dee2e6; --soft: #f4f7f8; }
+            html { scroll-behavior: smooth; }
+            section[id], article[id] { scroll-margin-top: 80px; }
+
+            .masthead .site-heading .subheading { font-size: 1.15rem; letter-spacing: .02em; }
+            .masthead .site-heading .course { display: block; margin-top: .75rem; font-family: 'Open Sans', sans-serif; font-size: .85rem; text-transform: uppercase; letter-spacing: .15em; opacity: .85; }
+            .masthead:before { opacity: .62 !important; }
+
+            .section { padding: 4rem 0; }
+            .section + .section { border-top: 1px solid var(--line); }
+            .section-label { font-family: 'Open Sans', sans-serif; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; color: var(--accent); margin-bottom: .5rem; }
+            .section-title { font-weight: 800; font-size: 2.25rem; margin-bottom: 1.25rem; }
+            .lead-text { font-size: 1.2rem; line-height: 1.7; max-width: 46rem; }
+
+            /* Problem type cards */
+            .problem-card { height: 100%; background: var(--soft); border-left: 4px solid var(--accent); border-radius: 4px; transition: background .2s; }
+            .problem-card:hover { background: #e8f1f3; }
+            .problem-card a { display: block; height: 100%; padding: 1.5rem; text-decoration: none; color: inherit; }
+            .problem-card .num { font-family: 'Open Sans', sans-serif; font-weight: 800; font-size: .8rem; letter-spacing: .12em; color: var(--accent); }
+            .problem-card h3 { font-size: 1.2rem; font-weight: 800; margin: .4rem 0 .5rem; }
+            .problem-card p { font-size: 1rem; margin: 0; color: #444; }
+
+            /* Map sections */
+            .map-block { padding: 4rem 0; }
+            .map-block + .map-block { border-top: 1px solid var(--line); }
+            article.map-block:first-of-type { padding-top: 1rem; }
+            .map-kicker { font-family: 'Open Sans', sans-serif; font-size: .85rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+            .map-title { font-weight: 800; font-size: 2rem; margin: .35rem 0 1.5rem; }
+            .map-figure { margin: 0 0 2rem; }
+            .map-figure a { display: block; background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: .75rem; box-shadow: 0 6px 24px rgba(0,0,0,.08); transition: box-shadow .2s; }
+            .map-figure a:hover { box-shadow: 0 10px 32px rgba(0,0,0,.16); }
+            .map-figure img { display: block; width: 100%; height: auto; margin: 0 auto; }
+            .map-figure figcaption { font-family: 'Open Sans', sans-serif; font-size: .8rem; color: var(--muted); text-align: center; margin-top: .6rem; }
+            .map-story h4, .map-tools h4 { font-family: 'Open Sans', sans-serif; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: .75rem; }
+            .map-story p { font-size: 1.1rem; line-height: 1.75; }
+            .finding { background: var(--soft); border-left: 4px solid var(--accent); border-radius: 4px; padding: 1rem 1.25rem; margin-bottom: 1.75rem; }
+            .finding .big { display: block; font-family: 'Open Sans', sans-serif; font-weight: 800; font-size: 2rem; line-height: 1.1; color: var(--accent); }
+            .finding .label { display: block; font-family: 'Open Sans', sans-serif; font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: .35rem; }
+            .finding p { font-size: .95rem; margin: .4rem 0 0; color: #444; }
+            .map-tools ul { list-style: none; padding: 0; margin: 0; }
+            .map-tools li { font-family: 'Open Sans', sans-serif; font-size: .95rem; padding: .5rem 0 .5rem 1.6rem; border-bottom: 1px solid var(--line); position: relative; }
+            .map-tools li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
+            /* Skills */
+            .skill-group { height: 100%; padding: 1.5rem; border: 1px solid var(--line); border-radius: 6px; }
+            .skill-group h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
+            .skill-group h3 i { color: var(--accent); margin-right: .4rem; }
+            .chip { display: inline-block; font-family: 'Open Sans', sans-serif; font-size: .85rem; font-weight: 600; padding: .3rem .75rem; margin: 0 .35rem .5rem 0; border-radius: 999px; background: var(--soft); color: var(--ink); border: 1px solid var(--line); }
+
+            /* Contact */
+            .contact-links a { display: inline-block; font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 1.05rem; margin: 0 1.75rem .5rem 0; text-decoration: none; }
+            .contact-links i { margin-right: .45rem; }
+
+            @media (max-width: 767px) {
+                .section, .map-block { padding: 2.75rem 0; }
+                .section-title { font-size: 1.75rem; }
+                .map-title { font-size: 1.6rem; }
+                .map-figure a { padding: .4rem; }
+                .map-tools { margin-top: .5rem; }
+            }
+        </style>
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="#top">Qaaid Abdullah</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#overview">Overview</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#maps">Maps</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+        <header class="masthead" id="top" style="background-image: url('maps/hero-buffers.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>Qaaid Abdullah</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <span class="subheading">Solving problems with maps: my GIS portfolio</span>
+                            <span class="course">Final Lab Report &middot; Fall 2026</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
-                        </p>
+
+        <main>
+            <!-- OVERVIEW -->
+            <section class="section" id="overview">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-10">
+                            <div class="section-label">Overview</div>
+                            <h2 class="section-title">15 weeks of problem solving with GIS</h2>
+                            <p class="lead-text">This course was about using GIS to answer real questions, not just to make maps. Every lab started with a problem. I sketched a plan, prepared and projected the data, ran the analysis, and designed a map that answers the question clearly. These three maps are the ones I'm proudest of, and each one solves a different kind of problem.</p>
+                        </div>
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2023
-                        </p>
+                    <div class="row gx-4 gx-lg-5 justify-content-center mt-4">
+                        <div class="col-lg-11 col-xl-10">
+                            <h3 class="h5 fw-bold mb-3">The kinds of problems I solved</h3>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="problem-card"><a href="#map-1">
+                                        <span class="num">MAP 01</span>
+                                        <h3>Environmental risk</h3>
+                                        <p>Which parts of Flint face the highest risk of poisoned tap water?</p>
+                                    </a></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="problem-card"><a href="#map-2">
+                                        <span class="num">MAP 02</span>
+                                        <h3>Site selection</h3>
+                                        <p>Where should Philadelphia locate a new healthy food store?</p>
+                                    </a></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="problem-card"><a href="#map-3">
+                                        <span class="num">MAP 03</span>
+                                        <h3>Density &amp; scale</h3>
+                                        <p>Where do people live in Miami-Dade, and does the map's scale change the answer?</p>
+                                    </a></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
-            </div>
-        </div>
+            </section>
+
+            <!-- MAPS -->
+            <section class="section" id="maps">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-10">
+                            <div class="section-label">My best work</div>
+                            <h2 class="section-title">Three maps, three problems</h2>
+                        </div>
+                    </div>
+
+                    <!-- MAP 1: FLINT -->
+                    <article class="map-block" id="map-1">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-11 col-xl-10">
+                                <div class="map-kicker">Map 01 &middot; Environmental risk</div>
+                                <h3 class="map-title">Where is Flint's tap water most at risk?</h3>
+                                <figure class="map-figure">
+                                    <a href="maps/flint-water-risk.jpg" target="_blank" rel="noopener"><img src="maps/flint-water-risk.jpg" alt="Map of Flint, Michigan ward boundaries with two red highest-risk areas: one along the Flint River near Buick City and one near the Michigan School for the Deaf" loading="lazy" /></a>
+                                    <figcaption>Click the map to open it full size</figcaption>
+                                </figure>
+                                <div class="row gx-4 gx-lg-5">
+                                    <div class="col-md-7 map-story">
+                                        <h4>The story</h4>
+                                        <p>After Flint switched its water source in 2014, lead from aging pipes got into residents' tap water, and the city needed to know where the danger was greatest. I defined the highest-risk areas as places within 0.3 miles of a Toxic Release Inventory (TRI) facility reporting over 10,000 tons of water pollution, within 0.3 miles of a river, and within 0.2 miles of a lead service line. I projected every layer to Michigan State Plane South so distances were measured accurately, selected the heaviest polluters by attribute, and buffered each set of features. Intersecting the three buffers left only the places where all three risks overlap. The result is two small zones, one along the Flint River near Buick City and one near the Michigan School for the Deaf, which narrows a citywide crisis down to the places where testing and pipe replacement should start.</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="finding">
+                                            <span class="label">Key finding</span>
+                                            <span class="big">2 zones</span>
+                                            <p>Only two small areas in the city meet all three risk conditions at once.</p>
+                                        </div>
+                                        <div class="map-tools">
+                                            <h4>GIS tools &amp; skills used</h4>
+                                            <ul>
+                                                <li>Project (NAD 1983 HARN State Plane Michigan South)</li>
+                                                <li>Join and Select by Attribute</li>
+                                                <li>Buffer (Dissolve All)</li>
+                                                <li>Intersect (overlay of three criteria)</li>
+                                                <li>Layout design: legend, scale bar, north arrow, data sources</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- MAP 2: PHILADELPHIA -->
+                    <article class="map-block" id="map-2">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-11 col-xl-10">
+                                <div class="map-kicker">Map 02 &middot; Site selection</div>
+                                <h3 class="map-title">Finding the best spot for a healthy food store in Philadelphia</h3>
+                                <figure class="map-figure">
+                                    <a href="maps/philly-healthy-food-store.jpg" target="_blank" rel="noopener"><img src="maps/philly-healthy-food-store.jpg" alt="Map of eight numbered candidate areas in North Philadelphia, with Area 4 highlighted in tan as the recommended area" loading="lazy" /></a>
+                                    <figcaption>Click the map to open it full size</figcaption>
+                                </figure>
+                                <div class="row gx-4 gx-lg-5">
+                                    <div class="col-md-7 map-story">
+                                        <h4>The story</h4>
+                                        <p>Philadelphia wants to attract a new store that sells healthy food, and the site has to follow four rules: it must be inside an empowerment zone, within 2,000 feet of a subway or regional rail station, at least 1,200 feet from any farmers market or Healthy Corner Store, and preferably part of a large contiguous area. I turned each rule into a layer. Buffered stations formed a "must be here" area that I intersected with the empowerment zones, and buffered markets and stores formed a "can't be here" area that I erased from it. That left 8 candidate areas, which I split into separate polygons, measured in square feet, and ranked by size. I recommend Area 4 in North Central Philadelphia, which at about 9.57 million square feet (roughly 220 acres) is the largest area that meets every rule and about 1.5 times the size of the runner-up. Because the buffers use straight-line distance and I didn't check parcels or zoning, the map points to a search area rather than a specific lot.</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="finding">
+                                            <span class="label">Key finding</span>
+                                            <span class="big">220 acres</span>
+                                            <p>Area 4 is the largest site that meets every rule, at 35% of all candidate land.</p>
+                                        </div>
+                                        <div class="map-tools">
+                                            <h4>GIS tools &amp; skills used</h4>
+                                            <ul>
+                                                <li>Project (State Plane Pennsylvania South, US feet)</li>
+                                                <li>Buffer: 2,000 ft access and 1,200 ft exclusion zones (Dissolve All)</li>
+                                                <li>Union, Intersect and Erase</li>
+                                                <li>Multipart to Singlepart</li>
+                                                <li>Calculate Geometry and ranking candidates by area</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- MAP 3: MIAMI-DADE -->
+                    <article class="map-block" id="map-3">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-lg-11 col-xl-10">
+                                <div class="map-kicker">Map 03 &middot; Density &amp; scale</div>
+                                <h3 class="map-title">Where Miami-Dade's people live, and why scale changes the answer</h3>
+                                <figure class="map-figure">
+                                    <a href="maps/miami-dade-density.jpg" target="_blank" rel="noopener"><img src="maps/miami-dade-density.jpg" alt="Choropleth map of population density by census tract in Miami-Dade County, darkest along the corridor from Miami to North Miami and in Hialeah" loading="lazy" /></a>
+                                    <figcaption>Click the map to open it full size</figcaption>
+                                </figure>
+                                <div class="row gx-4 gx-lg-5">
+                                    <div class="col-md-7 map-story">
+                                        <h4>The story</h4>
+                                        <p>This map shows how densely people live across Miami-Dade County's census tracts, from the nearly empty Everglades to the packed corridor running from Miami up through North Miami. I joined 2020 Census tables to the tract shapefile, decoded the field names, projected the data to UTM Zone 17N, and calculated each tract's area and its density in people per square mile. The map also taught me the limits of averages: one Everglades tract covers about 948 square miles at only 8 people per square mile, which says nothing about where its few residents actually live. When I remapped downtown Miami to Miami Beach using census blocks instead of tracts, the densest block reached about 376,700 people per square mile, nearly 2.7 times the densest tract. That is the modifiable areal unit problem in action, so density results should always be reported along with the zone size they were measured at.</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="finding">
+                                            <span class="label">Key finding</span>
+                                            <span class="big">2.7&times;</span>
+                                            <p>The densest census block is nearly 2.7 times as dense as the densest tract.</p>
+                                        </div>
+                                        <div class="map-tools">
+                                            <h4>GIS tools &amp; skills used</h4>
+                                            <ul>
+                                                <li>Join table to shapefile (2020 Census)</li>
+                                                <li>Decoding census fields (POP100, housing units)</li>
+                                                <li>Project (NAD 1983 UTM Zone 17N)</li>
+                                                <li>Calculate Geometry and Calculate Field (density)</li>
+                                                <li>Graduated-color choropleth classification</li>
+                                                <li>Ecological fallacy and MAUP</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section" id="skills">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-10">
+                            <div class="section-label">What I can do now</div>
+                            <h2 class="section-title">Skills I built this semester</h2>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="skill-group">
+                                        <h3><i class="fas fa-database"></i>Data</h3>
+                                        <span class="chip">Joining tables to shapefiles</span><span class="chip">Decoding census fields</span><span class="chip">Map projections</span><span class="chip">Select by attribute</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="skill-group">
+                                        <h3><i class="fas fa-layer-group"></i>Analysis</h3>
+                                        <span class="chip">Buffers</span><span class="chip">Union / Intersect / Erase</span><span class="chip">Multipart to Singlepart</span><span class="chip">Calculate Geometry &amp; Field</span><span class="chip">Workflow planning</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="skill-group">
+                                        <h3><i class="fas fa-map"></i>Cartography</h3>
+                                        <span class="chip">Choropleth classification</span><span class="chip">Color schemes</span><span class="chip">Map layouts</span><span class="chip">Visual hierarchy</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="h5 fw-bold mt-5 mb-3">Bright spots</h3>
+                            <p class="lead-text">My biggest bright spot was watching four separate rules for the Philadelphia store come together into one clear answer with just a few overlay tools. I also learned that how you draw the zones can change the story a map tells, which is something I'll keep in mind every time I read a map from now on.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- CONTACT -->
+            <section class="section" id="contact">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-10">
+                            <div class="section-label">Contact</div>
+                            <h2 class="section-title">Let's talk maps</h2>
+                            <p class="contact-links">
+                                <a href="mailto:tut65050@temple.edu"><i class="fas fa-envelope"></i>tut65050@temple.edu</a>
+                                <a href="https://github.com/tut65050-ops" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
@@ -116,23 +336,15 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="mailto:tut65050@temple.edu" aria-label="Email">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="https://github.com/tut65050-ops" target="_blank" rel="noopener" aria-label="GitHub">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -140,7 +352,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2023</div>
+                        <div class="small text-center text-muted fst-italic">&copy; 2026 Qaaid Abdullah &middot; Built on the Clean Blog theme by Start Bootstrap</div>
                     </div>
                 </div>
             </div>
