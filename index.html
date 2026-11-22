@@ -145,8 +145,8 @@
                                 <div class="col-md-4">
                                     <div class="problem-card"><a href="#map-3">
                                         <span class="num">MAP 03</span>
-                                        <h3>Density &amp; scale</h3>
-                                        <p>Where do people live in Miami-Dade, and does the map's scale change the answer?</p>
+                                        <h3>Crime patterns</h3>
+                                        <p>Is Chicago's homicide problem citywide, and does it overlap with tourism?</p>
                                     </a></div>
                                 </div>
                             </div>
@@ -239,36 +239,36 @@
                         </div>
                     </article>
 
-                    <!-- MAP 3: MIAMI-DADE -->
+                    <!-- MAP 3: CHICAGO -->
                     <article class="map-block" id="map-3">
                         <div class="row gx-4 gx-lg-5 justify-content-center">
                             <div class="col-lg-11 col-xl-10">
-                                <div class="map-kicker">Map 03 &middot; Density &amp; scale</div>
-                                <h3 class="map-title">Where Miami-Dade's people live, and why scale changes the answer</h3>
+                                <div class="map-kicker">Map 03 &middot; Crime pattern analysis</div>
+                                <h3 class="map-title">Is Chicago's homicide problem really citywide?</h3>
                                 <figure class="map-figure">
-                                    <a href="maps/miami-dade-density.jpg" target="_blank" rel="noopener"><img src="maps/miami-dade-density.jpg" alt="Choropleth map of population density by census tract in Miami-Dade County, darkest along the corridor from Miami to North Miami and in Hialeah" loading="lazy" /></a>
+                                    <a href="maps/chicago-homicide-density.jpg" target="_blank" rel="noopener"><img src="maps/chicago-homicide-density.jpg" alt="Choropleth map of homicides per square mile by Chicago police district, darkest on the West Side and South Side and lightest on the far North Side and downtown" loading="lazy" /></a>
                                     <figcaption>Click the map to open it full size</figcaption>
                                 </figure>
                                 <div class="row gx-4 gx-lg-5">
                                     <div class="col-md-7 map-story">
                                         <h4>The story</h4>
-                                        <p>This map shows how densely people live across Miami-Dade County's census tracts, from the nearly empty Everglades to the packed corridor running from Miami up through North Miami. I joined 2020 Census tables to the tract shapefile, decoded the field names, projected the data to UTM Zone 17N, and calculated each tract's area and its density in people per square mile. The map also taught me the limits of averages: one Everglades tract covers about 948 square miles at only 8 people per square mile, which says nothing about where its few residents actually live. When I remapped downtown Miami to Miami Beach using census blocks instead of tracts, the densest block reached about 376,700 people per square mile, nearly 2.7 times the densest tract. That is the modifiable areal unit problem in action, so density results should always be reported along with the zone size they were measured at.</p>
+                                        <p>As a GIS crime analyst for the City of Chicago, I was asked to respond to the concern that people judge the whole city by its murder rate, and to check whether homicides might affect tourism. I reprojected the police district, crime and Airbnb data to UTM Zone 16N, pulled the homicides out of the crime records, summarized homicide counts and Airbnb reviews by police district, and joined the results to the district boundaries. Dividing each count by the district's area turned raw totals into densities, so districts of different sizes could be compared fairly. The map shows that homicides are concentrated, not citywide: density peaks on the West and South Sides in District 11 (10.98 per square mile), District 15 (9.70) and District 7 (6.14), while the downtown and North Side districts where Airbnb reviews are densest all stay below 1.7. This is a descriptive pattern only, because review counts are just a proxy for tourism and this analysis can't show that homicides cause fewer visitors.</p>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="finding">
                                             <span class="label">Key finding</span>
-                                            <span class="big">2.7&times;</span>
-                                            <p>The densest census block is nearly 2.7 times as dense as the densest tract.</p>
+                                            <span class="big">10.98</span>
+                                            <p>Homicides per square mile in District 11, the highest in the city. The four busiest Airbnb districts all stay under 1.7.</p>
                                         </div>
                                         <div class="map-tools">
                                             <h4>GIS tools &amp; skills used</h4>
                                             <ul>
-                                                <li>Join table to shapefile (2020 Census)</li>
-                                                <li>Decoding census fields (POP100, housing units)</li>
-                                                <li>Project (NAD 1983 UTM Zone 17N)</li>
+                                                <li>Project (NAD 1983 UTM Zone 16N)</li>
+                                                <li>Extracting homicides from crime records</li>
+                                                <li>Summarize (Summary Statistics) by police district</li>
+                                                <li>Table join on the DISTRICT key field</li>
                                                 <li>Calculate Geometry and Calculate Field (density)</li>
                                                 <li>Graduated-color choropleth classification</li>
-                                                <li>Ecological fallacy and MAUP</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -290,7 +290,7 @@
                                 <div class="col-md-4">
                                     <div class="skill-group">
                                         <h3><i class="fas fa-database"></i>Data</h3>
-                                        <span class="chip">Joining tables to shapefiles</span><span class="chip">Decoding census fields</span><span class="chip">Map projections</span><span class="chip">Select by attribute</span>
+                                        <span class="chip">Joining tables to shapefiles</span><span class="chip">Decoding census fields</span><span class="chip">Map projections</span><span class="chip">Select by attribute</span><span class="chip">Summary statistics</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
